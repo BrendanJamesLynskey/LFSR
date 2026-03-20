@@ -62,15 +62,11 @@ foreach mod $modules {
     set dsp "0"
     if {[regexp {DSPs\s*\|\s*(\d+)} $util_rpt -> val]} { set dsp $val }
 
-    # Parse WNS for Fmax — look for the numeric line after the dashes
+    # Parse WNS for Fmax — Fmax = 1000 / (period - WNS)
     set fmax "?"
     if {[regexp {\n\s+(-?[0-9]+\.[0-9]+)\s+(-?[0-9]+\.[0-9]+)\s+\d+\s+\d+\s+} $timing_rpt -> wns_val tns_val]} {
         set wns [expr {double($wns_val)}]
-        if {$wns >= 0} {
-            set fmax [format "%.1f" [expr {1000.0 / $clk_ns}]]
-        } else {
-            set fmax [format "%.1f" [expr {1000.0 / ($clk_ns - $wns)}]]
-        }
+        set fmax [format "%.1f" [expr {1000.0 / ($clk_ns - $wns)}]]
     }
 
     lappend summary [list $top $luts $ffs $bram $dsp $fmax]
