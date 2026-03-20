@@ -1,5 +1,4 @@
 // Brendan Lynskey 2025
-`default_nettype none
 
 module lfsr_prbs #(
     parameter PRBS_TYPE = 7  // 7, 15, or 31

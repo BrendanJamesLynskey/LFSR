@@ -1,5 +1,4 @@
 // Brendan Lynskey 2025
-`default_nettype none
 
 module lfsr_galois #(
     parameter WIDTH = 8,

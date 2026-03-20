@@ -1,5 +1,4 @@
 // Brendan Lynskey 2025
-`default_nettype none
 
 package lfsr_pkg;
 
