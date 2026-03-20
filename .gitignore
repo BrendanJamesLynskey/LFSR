@@ -1,0 +1,12 @@
+# Simulation artifacts
+*.vvp
+*.vcd
+*.lxt
+*.fst
+
+# Vivado
+*.jou
+*.log
+.Xil/
+*.bit
+*.ltx
